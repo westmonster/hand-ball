@@ -1,0 +1,8 @@
+[gd_resource type="SphereMesh" format=2]
+
+[resource]
+radius = 0.125
+height = 0.125
+rings = 1
+is_hemisphere = true
+

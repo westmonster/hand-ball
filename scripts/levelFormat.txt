@@ -1,0 +1,77 @@
+Editable Cubic Level Format:
+	Each level will be a dictionary of a string, and two arrays of dictionaries,
+	cubes, which reference connected cubes and sides with linked-lists,
+	and sides, which store data such as texture, UV map data, solidity, and displacement.
+	The normal value of each side is determined by what side of the cube it is attached to.
+
+Example:
+	var level = {
+
+		"sky": "sky0",
+		# The name of a specific sky in the res://assets/textures/skies/ directory. (if empty, uses default color).
+		
+		"sun": { # Dictionary of sun values.
+			rotation: Vector3(0,-90,0), # Direction the sun points.
+			color: #fff, # Light color.
+			energy: 1, # Sun brightness.
+			ambient: 1, # Ambient light brightness.
+		}
+		
+		"cubes": [
+			{
+				# This would be cube "c0" since it is the 0th index in the array.
+				# Values that start with a "c" refer to cubes, "s" refers to sides,
+				# the trailing number refers to their respective index within their array.
+				# if a direction key is empty or null, that side will not be visible.
+				"u": "c1 s0", # Up, positive Y-Axis
+					# a direction can define both a connected cube and face for instances when a connected cube might not 
+					# fully cover the cube's side due to displacements.
+				"d": "c2", # Down, negative Y-Axis
+				"l": "s1", # Left, negative X-Axis
+				"r": "c3", # Right, positive X-Axis
+				"f": "s2", # Front, positive Z-Axis
+				"b": "c4", # Back, negative Z-Axisz
+				"flags": {
+					"solid": true, # If true, is collidable by the mesh formed by the sides, if false, allows players 
+						# to walk/fall through (Default Value).
+					"push": [0,0,0], # Pushes player in direction of the vector for features like wind tunnels.
+					"teleport": null, # If not null, walking through this cube will teleport the player to another cube
+					...(etc.)
+			},
+			...(etc.)
+		]
+
+		"sides": [
+			{
+				texture: "texture0",
+					# The name of a specific material in the res://assets/textures/world/ directory. (if empty, uses default material).
+				"solid": true,
+					# If true, is collidable, if false, allows players to walk/fall through(if cube is non-solid) (Default Value).
+				"uv": [[0,0], [1,0], [0,1], [1,1]],
+					# Uses Vector2's of scalar values (Default Value).
+				"displacement": [[0,0,0], [0,0,0], [0,0,0], [0,0,0]],
+					# Array of Vector3's of scalar values that are subtracted from the side's default vertex positions with 
+					# respect to their side's default normal to determine how far from the cube's middle they go (Default Value).
+				"flags": {
+					"bounce": [0,0,0], 
+						# Similar to a Quake3 Jump Pad, throws player into the air in the vector direction of the value, 
+						# multiplied by the side's normal.
+					"teleport": null, # If not null, walking through this cube will teleport the player to another cube
+				},
+			},
+			...(etc.)
+		]
+		
+		"entities":[
+			{
+				"spawnpoint": [0,0,0]
+			},
+			{
+				"powerup_armor": [1,0,1],
+				"spawn_delay": 3000, # Delay in miliseconds before the item first spawns.
+				"respawn_delay": 6000, # Delay in miliseconds before the item respawns.
+			},
+			...(etc.)
+		]
+			
+	}

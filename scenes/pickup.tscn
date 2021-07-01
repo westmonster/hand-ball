@@ -1,0 +1,368 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://scripts/pickup.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/sprites/powerups/speed.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/sprites/powerups/rapidfire.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/sprites/powerups/health.png" type="Texture" id=4]
+[ext_resource path="res://assets/models/pickups/cone.tres" type="SphereMesh" id=5]
+[ext_resource path="res://assets/materials/red.tres" type="Material" id=6]
+[ext_resource path="res://assets/models/pickups/hemi.tres" type="SphereMesh" id=7]
+[ext_resource path="res://assets/materials/blue.tres" type="Material" id=8]
+[ext_resource path="res://assets/materials/green.tres" type="Material" id=9]
+[ext_resource path="res://assets/textures/sprites/shadow.png" type="Texture" id=10]
+[ext_resource path="res://assets/textures/sprites/powerups/speed_outline.png" type="Texture" id=11]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.15
+height = 0.5
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+flags_unshaded = true
+params_diffuse_mode = 4
+params_specular_mode = 4
+params_billboard_mode = 1
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.42
+albedo_texture = ExtResource( 11 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
+params_diffuse_mode = 4
+params_specular_mode = 4
+params_billboard_mode = 1
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.42
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+flags_unshaded = true
+params_diffuse_mode = 4
+params_specular_mode = 4
+params_billboard_mode = 1
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.42
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_unshaded = true
+params_diffuse_mode = 4
+params_specular_mode = 4
+params_cull_mode = 1
+albedo_color = Color( 1, 1, 0, 0.121569 )
+
+[sub_resource type="CylinderMesh" id=6]
+material = SubResource( 5 )
+top_radius = 0.125
+bottom_radius = 0.125
+height = 0.25
+
+[sub_resource type="Animation" id=7]
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("capsule/top_cap:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.095, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("capsule/bot_cap:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.095, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("capsule/halo:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 0.75, 1 ), Vector3( 1, 0, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("capsule/halo:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( -0.01, 0.48, 0.49 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("capsule/icon/speed:pixel_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0008, 0.0001 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("capsule/icon/rapidfire:pixel_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0008, 0.0001 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("capsule/icon/health:pixel_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0008, 0.0001 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("capsule/top_cap:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.095, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("capsule/bot_cap:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -0.095, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("capsule/halo:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 0, 1 ), Vector3( 1, 0.75, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("capsule/halo:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.01, 0.49 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("capsule/icon/speed:pixel_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.48 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0001, 0.0008 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("capsule/icon/rapidfire:pixel_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0001, 0.0008 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("capsule/icon/health:pixel_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0001, 0.0008 ]
+}
+
+[sub_resource type="CylinderShape" id=9]
+radius = 1.5
+height = 1.0
+
+[node name="pickup" type="Area"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="capsule" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+
+[node name="icon" type="Spatial" parent="capsule"]
+
+[node name="speed" type="Sprite3D" parent="capsule/icon"]
+material_override = SubResource( 2 )
+pixel_size = 0.0001
+texture = ExtResource( 2 )
+
+[node name="rapidfire" type="Sprite3D" parent="capsule/icon"]
+visible = false
+material_override = SubResource( 3 )
+pixel_size = 0.0001
+texture = ExtResource( 3 )
+
+[node name="health" type="Sprite3D" parent="capsule/icon"]
+visible = false
+material_override = SubResource( 4 )
+pixel_size = 0.0001
+texture = ExtResource( 4 )
+
+[node name="top_cap" type="Spatial" parent="capsule"]
+
+[node name="red_cone" type="MeshInstance" parent="capsule/top_cap"]
+visible = false
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 6 )
+
+[node name="red_hemi" type="MeshInstance" parent="capsule/top_cap"]
+visible = false
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 6 )
+
+[node name="blu_cone" type="MeshInstance" parent="capsule/top_cap"]
+visible = false
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 8 )
+
+[node name="blu_hemi" type="MeshInstance" parent="capsule/top_cap"]
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 8 )
+
+[node name="grn_cone" type="MeshInstance" parent="capsule/top_cap"]
+visible = false
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 9 )
+
+[node name="grn_hemi" type="MeshInstance" parent="capsule/top_cap"]
+visible = false
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 9 )
+
+[node name="bot_cap" type="Spatial" parent="capsule"]
+
+[node name="red_cone" type="MeshInstance" parent="capsule/bot_cap"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 6 )
+
+[node name="red_hemi" type="MeshInstance" parent="capsule/bot_cap"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 6 )
+
+[node name="blu_cone" type="MeshInstance" parent="capsule/bot_cap"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 8 )
+
+[node name="blu_hemi" type="MeshInstance" parent="capsule/bot_cap"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 8 )
+
+[node name="grn_cone" type="MeshInstance" parent="capsule/bot_cap"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 9 )
+
+[node name="grn_hemi" type="MeshInstance" parent="capsule/bot_cap"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 9 )
+
+[node name="halo" type="MeshInstance" parent="capsule"]
+transform = Transform( 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/close = SubResource( 7 )
+anims/open = SubResource( 8 )
+
+[node name="approach" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="approach"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 9 )
+
+[node name="shadow" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.01, 0 )
+modulate = Color( 0, 0, 0, 0.74902 )
+pixel_size = 0.0009
+texture = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_pickup_body_entered"]
+[connection signal="body_entered" from="approach" to="." method="_on_approach_body_entered"]
+[connection signal="body_exited" from="approach" to="." method="_on_approach_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,146 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "action",
+"language": "GDScript",
+"path": "res://turgys-behavior-tree/BehaviorTree/Classes/action.gd"
+}, {
+"base": "Node",
+"class": "condition",
+"language": "GDScript",
+"path": "res://turgys-behavior-tree/BehaviorTree/Classes/condition.gd"
+}, {
+"base": "Node",
+"class": "inverter",
+"language": "GDScript",
+"path": "res://turgys-behavior-tree/BehaviorTree/Classes/inverter.gd"
+}, {
+"base": "Node",
+"class": "repeater",
+"language": "GDScript",
+"path": "res://turgys-behavior-tree/BehaviorTree/Classes/repeater.gd"
+}, {
+"base": "Node",
+"class": "repeatuntilfail",
+"language": "GDScript",
+"path": "res://turgys-behavior-tree/BehaviorTree/Classes/repeatuntilfail.gd"
+}, {
+"base": "Node",
+"class": "root",
+"language": "GDScript",
+"path": "res://turgys-behavior-tree/BehaviorTree/Classes/root.gd"
+}, {
+"base": "Node",
+"class": "selector",
+"language": "GDScript",
+"path": "res://turgys-behavior-tree/BehaviorTree/Classes/selector.gd"
+}, {
+"base": "Node",
+"class": "sequence",
+"language": "GDScript",
+"path": "res://turgys-behavior-tree/BehaviorTree/Classes/sequence.gd"
+}, {
+"base": "Node",
+"class": "succeeder",
+"language": "GDScript",
+"path": "res://turgys-behavior-tree/BehaviorTree/Classes/succeeder.gd"
+} ]
+_global_script_class_icons={
+"action": "",
+"condition": "",
+"inverter": "",
+"repeater": "",
+"repeatuntilfail": "",
+"root": "",
+"selector": "",
+"sequence": "",
+"succeeder": ""
+}
+
+[application]
+
+config/name="H.A.N.D. Ball"
+run/main_scene="res://scenes/mainmenu.tscn"
+config/icon="res://assets/ui/icons/face.png"
+
+[autoload]
+
+gamestate="*res://scripts/gamestate.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "decals", "turgys-behavior-tree" )
+
+[gdnative]
+
+singletons=[  ]
+
+[image_loader]
+
+filter=false
+gen_mipmaps=false
+
+[input]
+
+move_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+ ]
+}
+set_bomb={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_forward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_backward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+fire={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[physics]
+
+3d/physics_engine="Bullet"
+
+[rendering]
+
+quality/shadows/filter_mode=0
+quality/shading/force_lambert_over_burley=true
+quality/shading/force_blinn_over_ggx=true
+quality/subsurface_scattering/quality=0

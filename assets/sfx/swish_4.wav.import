@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/swish_4.wav-40667f35a02baf6f6e18c6cfb49bb92e.sample"
+
+[deps]
+
+source_file="res://assets/sfx/swish_4.wav"
+dest_files=[ "res://.import/swish_4.wav-40667f35a02baf6f6e18c6cfb49bb92e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
