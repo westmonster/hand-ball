@@ -6,10 +6,9 @@ func _ready():
 	gamestate.connect("round_ended", self, "end_of_round")
 	gamestate.connect("game_ended", self, "end_of_game")
 	get_tree().connect("screen_resized", self, "resize")
-	pass # Replace with function body.
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func resize():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	print($background)
 	$lobby.center()
 	$menuItems.rect_position = Vector2(24, get_viewport().size.y - (24+$menuItems.rect_size.y))
