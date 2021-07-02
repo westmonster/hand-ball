@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/mainmenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/mainMenu/brickSprite.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://assets/ui/pointers/pointer.svg" type="Texture" id=9]
 [ext_resource path="res://scripts/cursor.gd" type="Script" id=10]
 [ext_resource path="res://assets/ui/pointers/pointer_outline.svg" type="Texture" id=11]
+[ext_resource path="res://scripts/mainMenuSprite.gd" type="Script" id=12]
+[ext_resource path="res://scripts/wallpaper.gd" type="Script" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "scroll"
@@ -84,8 +86,12 @@ Button/styles/pressed = SubResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="wallpaper" type="Node2D" parent="."]
+script = ExtResource( 13 )
 
 [node name="background" type="Node2D" parent="wallpaper"]
 position = Vector2( -64, -64 )
@@ -94,6 +100,7 @@ position = Vector2( -64, -64 )
 
 [node name="foreground" type="Node2D" parent="wallpaper"]
 position = Vector2( 44, 79 )
+script = ExtResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wallpaper/foreground"]
 anims/scroll = SubResource( 1 )
@@ -106,7 +113,7 @@ script = ExtResource( 3 )
 [node name="faces" type="Node2D" parent="wallpaper/foreground"]
 
 [node name="Sprite" parent="wallpaper/foreground/faces" instance=ExtResource( 5 )]
-frame = 15
+frame = 27
 
 [node name="canvas" type="Node2D" parent="."]
 
