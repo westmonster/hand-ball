@@ -1,28 +1,49 @@
-[gd_resource type="Theme" load_steps=14 format=2]
+[gd_resource type="Theme" load_steps=18 format=2]
 
 [ext_resource path="res://assets/ui/styles/lineEdit.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/ui/styles/panel.tres" type="StyleBox" id=2]
 [ext_resource path="res://assets/ui/fonts/PixelOperator-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/ui/fonts/PixelOperator.ttf" type="DynamicFontData" id=4]
 
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.752941, 0.752941, 0.752941, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0.4, 1, 1 )
+
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.815686, 0.815686, 0.815686, 1 )
 border_width_left = 3
 border_width_top = 3
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.752941, 0.752941, 0.752941, 1 )
 border_width_left = 2
 border_width_top = 2
-border_color = Color( 0.815686, 0.815686, 0.815686, 1 )
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.752941, 0.752941, 0.752941, 1 )
 border_width_left = 2
 border_width_top = 2
-border_color = Color( 0.815686, 0.815686, 0.815686, 1 )
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
 anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.752941, 0.752941, 0.752941, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.752941, 0.752941, 0.752941, 1 )
@@ -30,6 +51,16 @@ bg_color = Color( 0.752941, 0.752941, 0.752941, 1 )
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.752941, 0.752941, 0.752941, 1 )
 anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.815686, 0.815686, 0.815686, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxLine" id=13]
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.752941, 0.752941, 0.752941, 1 )
@@ -60,7 +91,7 @@ Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
 Button/colors/icon_color_hover = Color( 0, 0, 0, 1 )
 Button/colors/icon_color_pressed = Color( 0, 0, 0, 1 )
 Button/styles/disabled = null
-Button/styles/focus = null
+Button/styles/focus = SubResource( 11 )
 Button/styles/hover = SubResource( 1 )
 Button/styles/normal = SubResource( 2 )
 Button/styles/pressed = null
@@ -908,10 +939,10 @@ OptionButton/constants/hseparation = 4
 OptionButton/constants/modulate_arrow = 1
 OptionButton/icons/arrow = null
 OptionButton/styles/disabled = null
-OptionButton/styles/focus = null
+OptionButton/styles/focus = SubResource( 3 )
 OptionButton/styles/hover = null
 OptionButton/styles/normal = SubResource( 3 )
-OptionButton/styles/pressed = null
+OptionButton/styles/pressed = SubResource( 10 )
 Panel/styles/panel = ExtResource( 2 )
 PanelContainer/styles/panel = SubResource( 4 )
 PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
@@ -928,14 +959,14 @@ PopupMenu/icons/visibility_hidden = null
 PopupMenu/icons/visibility_visible = null
 PopupMenu/icons/visibility_xray = null
 PopupMenu/styles/disabled = null
-PopupMenu/styles/focus = null
-PopupMenu/styles/hover = null
+PopupMenu/styles/focus = SubResource( 1 )
+PopupMenu/styles/hover = SubResource( 1 )
 PopupMenu/styles/labeled_separator_left = null
 PopupMenu/styles/labeled_separator_right = null
 PopupMenu/styles/normal = SubResource( 5 )
-PopupMenu/styles/panel = null
+PopupMenu/styles/panel = SubResource( 12 )
 PopupMenu/styles/pressed = null
-PopupMenu/styles/separator = null
+PopupMenu/styles/separator = SubResource( 13 )
 PopupPanel/styles/panel = SubResource( 6 )
 ProgressBar/colors/font_color = Color( 0, 0, 0, 1 )
 ProgressBar/styles/bg = null
